@@ -1,5 +1,13 @@
 # Comments
 
+## Tyler
+
+- Team stages: Forming, Norming, Storming, Performing.
+- [Rule of 3](https://www.artofmanliness.com/career-wealth/career/work-deliberately-instead-reactively-rule-3/).
+- Fallback to standard design patterns, hard to go wrong.
+- Teams with backbone don't ask permission to fix issues, tech debt, etc.
+- Always push for versioned APIs, deprecation windows and SLAs/SLOs (availability, latency).
+
 ## Paul
 
 - Take opportunities; they won't be offered again, but there may be other opportunities.
@@ -11,3 +19,7 @@
 - Watch out for when you've reached the limits of what the job has to offer.
 - Attrition is normal, clears the way for new people to step up and grow.
 - Promotions are high levels require need/space (attrition) and funding from the business.
+
+# Eric
+
+# Nigel
