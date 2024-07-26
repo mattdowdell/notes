@@ -26,7 +26,7 @@
 - Everything old is new, even AI (statistical analysis).
 - Watch out for when you've reached the limits of what the job has to offer.
 - Attrition is normal, clears the way for new people to step up and grow.
-- Promotions are high levels require need/space (attrition) and funding from the business.
+- Promotions for high levels require need/space (attrition) and funding from the business.
 
 ## Eric
 
