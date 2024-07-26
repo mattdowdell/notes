@@ -6,6 +6,8 @@
 - [Rule of 3](https://www.artofmanliness.com/career-wealth/career/work-deliberately-instead-reactively-rule-3/).
 - [How to speak](https://www.youtube.com/watch?v=Unzc731iCUY).
 - Default to standard design patterns, hard to go wrong.
+- Bounded contexts, Domain Driven Design.
+- Split up microservices with different APIs, SLOs and failure conditions.
 - Teams with backbone don't ask permission to fix issues, tech debt, etc.
 - Always push for versioned APIs, deprecation windows and SLAs/SLOs (availability, latency).
 - Be transparent about the feedback you give about those you lead; say it to them as well.
