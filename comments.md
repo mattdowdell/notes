@@ -11,6 +11,7 @@
 - Split up microservices with different APIs, SLOs, performance and failure conditions.
 - Minimum 3 replicas in a Kubernetes deployment for high availability.
 - Display usecases and SLOs upfront; make it clear what you do and how well.
+- [4 Golden Signals](https://sre.google/sre-book/monitoring-distributed-systems/).
 - Teams with backbone don't ask permission to fix issues, tech debt, etc.
 - Always push for versioned APIs, deprecation windows and SLAs/SLOs (availability, latency).
 - Be transparent about the feedback you give about those you lead; say it to them as well.
@@ -37,3 +38,4 @@
 - People don't scale, but good documentation can.
 - Not all microservices are equal, critical services should be held to higher standards.
 - Avoid high latency, synchronous workflows; partition them off if they must exist.
+- Build dashboards to monitor metrics and understand normal behaviour, add alerts when well understood.
