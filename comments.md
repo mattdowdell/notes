@@ -8,6 +8,8 @@
 - Default to standard design patterns, hard to go wrong.
 - Teams with backbone don't ask permission to fix issues, tech debt, etc.
 - Always push for versioned APIs, deprecation windows and SLAs/SLOs (availability, latency).
+- Be transparent about the feedback you give about those you lead; say it to them as well.
+- Be thoughtful in the feedback you provide.
 
 ## Paul
 
