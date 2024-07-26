@@ -5,7 +5,7 @@
 - Team stages: Forming, Norming, Storming, Performing.
 - [Rule of 3](https://www.artofmanliness.com/career-wealth/career/work-deliberately-instead-reactively-rule-3/).
 - [How to speak](https://www.youtube.com/watch?v=Unzc731iCUY).
-- Fallback to standard design patterns, hard to go wrong.
+- Defaulgt to standard design patterns, hard to go wrong.
 - Teams with backbone don't ask permission to fix issues, tech debt, etc.
 - Always push for versioned APIs, deprecation windows and SLAs/SLOs (availability, latency).
 
