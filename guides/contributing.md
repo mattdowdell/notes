@@ -10,7 +10,7 @@
 - Each pull request should focus on a specific change and not require reviewers to context switch
   between topics. If "also" appears in the pull request description, consider splitting the change
   into multiple pull requests.
-- It is harder to review large pull requests, with a [study] identifying 200-400 lines as the sweet
+- It is harder to review large pull requests, with a [study][1] identifying 200-400 lines as the sweet
   spot. Therefore, large changes should be broken up into multiple small pull requests. Vendored
   dependencies and generated code should be ignored when calculating the size of a change.
 
