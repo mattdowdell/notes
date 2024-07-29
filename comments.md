@@ -13,7 +13,7 @@
 - Display usecases and SLOs upfront; make it clear what you do and how well.
 - [4 Golden Signals](https://sre.google/sre-book/monitoring-distributed-systems/).
 - Teams with backbone don't ask permission to fix issues, tech debt, etc.
-- Always push for versioned APIs, deprecation windows and SLAs/SLOs (availability, latency).
+- Always push for versioned APIs, deprecation windows and SLAs/SLOs (availability, latency, traffic).
 - Be transparent about the feedback you give about those you lead; say it to them as well.
 - Be thoughtful in the feedback you provide.
 
