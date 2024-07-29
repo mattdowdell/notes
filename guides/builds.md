@@ -21,7 +21,7 @@ go build -o ./dist ./cmd/...
 Embed a build environment agnostic path for Go files with `-trimpath`. Suppress per-build variables with `-buildid=` in `ldflags`.
 
 ```sh
-go build -trimpath -ldflags="-buildid" .
+go build -trimpath -ldflags="-buildid=" .
 ```
 
 ### Smaller binaries
