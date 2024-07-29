@@ -19,6 +19,7 @@
 
 ## Paul
 
+- A well-ordered presentation will answer questions as they arise.
 - Take opportunities; they won't be offered again, but there may be other opportunities.
 - Part of getting opportunities is luck, but maximising them takes more.
 - Do what you want to do rather than what someone tells you to do.
