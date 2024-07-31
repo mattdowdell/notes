@@ -1,8 +1,26 @@
 # Libraries
 
-- jet
-- testify (+mockery)
-- chi
-- koanf
-- otel
-- pgx
+## Go
+
+### Database
+
+- [jet](https://github.com/go-jet/jet)
+- [pgx](https://github.com/jackc/pgx)
+
+### Testing
+
+- [testify](https://github.com/stretchr/testify)
+- [mockery](https://github.com/vektra/mockery)
+
+### APIs
+
+- [connectrpc](https://github.com/connectrpc/connect-go)
+- [chi](https://github.com/go-chi/chi)
+
+### Config
+
+- [koanf](https://github.com/knadh/koanf)
+
+### Observability
+
+- [otel](https://github.com/open-telemetry/opentelemetry-go)
