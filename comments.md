@@ -34,6 +34,10 @@
 
 ## Nigel
 
+## Mark
+
+- [Westrum's Organizational Model](https://itrevolution.com/articles/westrums-organizational-model-in-tech-orgs/)
+
 ## Other
 
 - People don't scale, but good documentation can.
