@@ -33,6 +33,7 @@
 ## Eric
 
 - Establish technical credentials before offering contrasting opinions, more likely to be taken seriously.
+- Volunteer for work outside your day-to-day activities.
 - Fully understand a counter proposal before accepting or rejecting it.
 - Take emotion out of conflicts, focus on just the facts (Dragnet approach).
 - Do your own research and form your own opinion when mediating conflicts, reframe the problem as necessary.
