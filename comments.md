@@ -42,6 +42,8 @@
 - Work at a promising and interesting starup if possible. Little monetary reward, but you get to do everything.
 - Being excited about work is ok, but learn to switch off. Life is often more important.
 - Move into uncomfortable areas, look out for new roles at around 5 years maximum.
+- Learning to write customer-facing documentation can make your design documentation better.
+- Taking over an established, poor quality team can be demoralising if you aren't empowered to overhaul it.
 
 ## Nigel
 
