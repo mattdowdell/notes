@@ -40,7 +40,7 @@
 - Senior technical roles are very different, expect to deal with the abstract rather than the technical.
 - Senior technical roles can take a lot of getting used to, not enjoyable or worthwhile for everyone.
 - Some companies have a role for very senior coders, e.g. NetApp, but it's rare.
-- Working at a promising and interesting startup will provide little monetary reward, but you can learn a wide array of skills for future roles.
+- Work at a promising and interesting startup if possible; it will provide little monetary reward, but you can learn a wide array of skills for future roles.
 - Being excited about work is ok, but learn to switch off. Life is often more important.
 - Move into uncomfortable areas, look out for new roles at around 5 years maximum.
 - Learning to write customer-facing documentation can make your design documentation better.
