@@ -32,6 +32,17 @@
 
 ## Eric
 
+- Establish technical credentials before offering contrasting opinions, more likely to be taken seriously.
+- Fully understand a counter proposal before accepting or rejecting it.
+- Take emotion out of conflicts, focus on just the facts (Dragnet approach).
+- Do your own research and form your own opinion when mediating conflicts, reframe the problem as necessary.
+- Senior technical roles are very different, expect to deal with the abstract rather than the technical.
+- Senior technical roles can take a lot of getting used to, not enjoyable or worthwhile for everyone.
+- Some companies have a role for very senior coders, e.g. NetApp, but it's rare.
+- Work at a promising and interesting starup if possible. Little monetary reward, but you get to do everything.
+- Being excited about work is ok, but learn to switch off. Life is often more important.
+- Move into uncomfortable areas, look out for new roles at around 5 years maximum.
+
 ## Nigel
 
 ## Mark
