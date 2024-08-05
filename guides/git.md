@@ -41,3 +41,35 @@ git pull origin main
 # soft reset all branch-specific commits
 git reset $(git merge-base origin/main $(git branch --show-current))
 ```
+
+## List non-vendored and non-generated code
+
+```sh
+git diff origin/main HEAD --name-only --no-renames | \
+  git check-attr --stdin linguist-generated linguist-vendored | \
+  grep ': set' | \
+  awk '{ORS=" "} {gsub(":","",$1); print ":^" $1}'
+```
+
+Assumes the use of `.gitattributes` to hide certain files in pull requests (see [overrides]). The attributes should only be 'set' instead of being equal to true or false.
+
+```
+# vendored dependencies
+vendor/** linguist-vendored
+
+# generated files
+mocks/** linguist-generated
+go.sum   linguist-generated
+```
+
+This can be misleading when moving files to non-vendored to vendored or non-generated to generated.
+
+## Get size of diff
+
+```sh
+git diff origin/main HEAD --numstat --ignore-space-change -- \
+  . paths/to/excluded/files | \
+  awk '{sum += $1 + $2} END {print sum}'
+```
+
+This combines the total number of lines removed and lines added. In git terms, this means a single line change results in a value of 2: the line was removed, modified and then added back.
