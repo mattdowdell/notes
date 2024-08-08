@@ -16,7 +16,10 @@
 - Always push for versioned APIs, deprecation windows and SLAs/SLOs (availability, latency, traffic).
 - Be transparent about the feedback you give about those you lead; say it to them as well.
 - Be thoughtful in the feedback you provide.
-- Build communication skills, evalgelise (preach) good ideas and values.
+- Build communication skills, evangelise (preach) good ideas and values.
+- Make sure you have a solid, uncompromised foundation, otherwise it will eventually bite you.
+- When replacing a legacy system, cordon off parts and replace them separately.
+- Declarative infrastucture is best, actions/imperative causes trouble eventually.
 - When starting a new role:
   - Figure out their standards, philosophies, etc.
   - Understand the build and deployment, work backwards from there.
