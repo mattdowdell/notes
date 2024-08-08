@@ -16,6 +16,16 @@
 - Always push for versioned APIs, deprecation windows and SLAs/SLOs (availability, latency, traffic).
 - Be transparent about the feedback you give about those you lead; say it to them as well.
 - Be thoughtful in the feedback you provide.
+- Build communication skills, evalgelise (preach) good ideas and values.
+- When starting a new role:
+  - Figure out their standards, philosophies, etc.
+  - Understand the build and deployment, work backwards from there.
+  - Be helpful.
+  - Spread questions around the team, avoid asking just 1 person.
+- When hiring, look for:
+  - Software engineers that are willing to generalise, steer clear of those that won't adapt.
+  - People that will be a good influence and take pride in their work.
+  - People that can teach others well.
 
 ## Paul
 
