@@ -79,3 +79,4 @@
 - Avoid high latency, synchronous workflows; partition them off if they must exist.
 - Build dashboards to monitor metrics and understand normal behaviour, add alerts when well understood.
 - Recognition day/week can be useful for amplifying completed work, but only if it's top of mind.
+- [SQL Cookbook](https://sqlfordevs.com/ebooks/next-level).
