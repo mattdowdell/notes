@@ -62,7 +62,7 @@
 ## Nigel
 
 - Don't discount or neglect non-technical resources, soft skills are necessary to get to senior positions.
-- [The Mom Test](https://www.momtestbook.com/]
+- [The Mom Test](https://www.momtestbook.com/)
 - Senior positions can provide more personal comfort, but they require personal sacrifice.
 - Small scale people management can improve soft skills, but leave space to continue developing technically.
 - Need to be proactive to prevent attrition of top talent. Waiting until they leave is always too late.
