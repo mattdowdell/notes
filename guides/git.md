@@ -64,6 +64,8 @@ go.sum   linguist-generated
 
 This can be misleading when moving files to non-vendored to vendored or non-generated to generated.
 
+[overrides]: https://github.com/github-linguist/linguist/blob/main/docs/overrides.md
+
 ## Get size of diff
 
 ```sh
