@@ -43,7 +43,7 @@ git pull origin main
 git reset $(git merge-base origin/main $(git branch --show-current))
 ```
 
-## List non-vendored and non-generated code
+## List vendored and generated code
 
 ```sh
 git diff origin/main HEAD --name-only --no-renames | \
