@@ -14,6 +14,7 @@ git config --global url.git@github.com:.insteadof https://github.com/
 # command aliases
 git config --global alias.co checkout
 git config --global alias.st status
+git config --global alias.br branch
 
 # pull config
 git config --global pull.rebase false
