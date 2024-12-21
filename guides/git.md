@@ -49,7 +49,7 @@ git reset $(git merge-base origin/main $(git branch --show-current))
 git diff origin/main HEAD --name-only --no-renames | \
   git check-attr --stdin linguist-generated linguist-vendored | \
   grep ': set' | \
-  awk '{ORS=" "} {gsub(":","",$1); print ":^" $1}'
+  awk '{ORS=" "} {gsub(":","",$1); print $1}'
 ```
 
 Assumes the use of `.gitattributes` to hide certain files in pull requests (see [overrides]). The attributes should only be 'set' instead of being equal to true or false.
@@ -71,7 +71,7 @@ This can be misleading when moving files to non-vendored to vendored or non-gene
 
 ```sh
 git diff origin/main HEAD --numstat --ignore-space-change -- \
-  . paths/to/excluded/files | \
+  . :^path/to/excluded/file | \
   awk '{sum += $1 + $2} END {print sum}'
 ```
 
