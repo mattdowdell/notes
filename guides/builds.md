@@ -62,6 +62,10 @@ RUN --mount=type=bind,target=. \
     CGO_ENABLED=0 go build -o ./dist/ ./cmd/...
 ```
 
+Bind mounts may need a trailing `,z` if the builder (i.e. the docker or podman VM) is running with SELinux enabled. See [container/podman#15423] for more details.
+
+[container/podman#15423]: https://github.com/containers/podman/issues/15423
+
 ### Image digests
 
 Use a specific digest for hermetic builds.
