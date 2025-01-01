@@ -34,6 +34,34 @@ go build -ldflags="-s -w" .
 
 ## Docker
 
+### Bind mounts
+
+Use bind mounts to avoid COPYing the whole repository into the build context.
+
+Without vendoring:
+
+```
+WORKDIR /src
+
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    --mount=type=bind,source=go.sum,target=go.sum \
+    --mount=type=bind,source=go.mod,target=go.mod \
+    go mod download -x
+
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    --mount=type=bind,target=. \
+    CGO_ENABLED=0 go build -o ./dist/ ./cmd/...
+```
+
+With vendoring:
+
+```
+WORKDIR /src
+
+RUN --mount=type=bind,target=. \
+    CGO_ENABLED=0 go build -o ./dist/ ./cmd/...
+```
+
 ### Image digests
 
 Use a specific digest for hermetic builds.
