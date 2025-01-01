@@ -79,7 +79,7 @@ docker inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDiges
 
 # podman
 podman pull gcr.io/distroless/static-debian12:nonroot
-docker inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDigests[1]' | cut -d@ -f2
+podman inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDigests[1]' | cut -d@ -f2
 ```
 
 ### SOURCE_DATE_EPOCH
