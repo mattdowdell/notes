@@ -2,7 +2,7 @@
 
 ## Go
 
-### Static binaries
+### Static Binaries
 
 Set `CGO_ENABLED=0` for fully statically linked binaries.
 
@@ -10,13 +10,13 @@ Set `CGO_ENABLED=0` for fully statically linked binaries.
 CGO_ENABLED=0 go build .
 ```
 
-### Build multiple binaries
+### Build Multiple Binaries
 
 ```sh
 go build -o ./dist ./cmd/...
 ```
 
-### Reproducible builds
+### Reproducible Builds
 
 Embed a build environment agnostic path for Go files with `-trimpath`. Suppress per-build variables with `-buildid=` in `ldflags`.
 
@@ -24,7 +24,7 @@ Embed a build environment agnostic path for Go files with `-trimpath`. Suppress 
 go build -trimpath -ldflags="-buildid=" .
 ```
 
-### Smaller binaries
+### Smaller Binaries
 
 Suppress the symbol table and DWARF debug info by setting `-s` and `-w` in `-ldflags` respectively. Testing found this produced a 30% smaller binary when static linking.
 
@@ -34,7 +34,7 @@ go build -ldflags="-s -w" .
 
 ## Docker
 
-### Bind mounts
+### Bind Mounts
 
 Use bind mounts to avoid COPYing the whole repository into the build context.
 
@@ -66,7 +66,7 @@ Bind mounts may need a trailing `,z` if the builder (i.e. the docker or podman V
 
 [container/podman#15423]: https://github.com/containers/podman/issues/15423
 
-### Image digests
+### Image Digests
 
 Use a specific digest for hermetic builds.
 
@@ -86,6 +86,33 @@ docker inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDiges
 # you may need to confirm the docker output to get the right one as they're ordered alphabetically.
 podman pull gcr.io/distroless/static-debian12:nonroot
 podman inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDigests[]' | cut -d@ -f2
+```
+
+### Generic Runtime Target
+
+Use build args to switch the binary present in the final image:
+
+```dockerfile
+FROM golang:1.23-bookworm AS build
+
+# ...
+
+FROM gcr.io/distroless/static-debian12:nonroot AS runtime
+
+ARG SERVICE
+COPY --from=build /go/bin/${SERVICE} /service
+
+ENTRYPOINT ["/service"]
+```
+
+Build the image using:
+
+```sh
+# docker
+podman build --target runtime --build-arg example --tag example:latest .
+
+# podman
+podman build --target runtime --build-arg example --tag example:latest .
 ```
 
 ### SOURCE_DATE_EPOCH
