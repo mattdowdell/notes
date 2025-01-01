@@ -78,8 +78,10 @@ docker pull gcr.io/distroless/static-debian12:nonroot
 docker inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDigests[0]' | cut -d@ -f2
 
 # podman
+# podman seems to return 2 digests, while docker just returns 1.
+# you may need to confirm the docker output to get the right one as they're ordered alphabetically.
 podman pull gcr.io/distroless/static-debian12:nonroot
-podman inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDigests[1]' | cut -d@ -f2
+podman inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDigests[]' | cut -d@ -f2
 ```
 
 ### SOURCE_DATE_EPOCH
