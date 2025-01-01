@@ -40,7 +40,7 @@ Use bind mounts to avoid COPYing the whole repository into the build context.
 
 Without vendoring:
 
-```
+```dockerfile
 WORKDIR /src
 
 RUN --mount=type=cache,target=/go/pkg/mod/ \
@@ -55,7 +55,7 @@ RUN --mount=type=cache,target=/go/pkg/mod/ \
 
 With vendoring:
 
-```
+```dockerfile
 WORKDIR /src
 
 RUN --mount=type=bind,target=. \
