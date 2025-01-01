@@ -73,8 +73,13 @@ FROM gcr.io/distroless/static-debian12:nonroot@sha256:8dd8d3ca2cf283383304fd45a5
 An architecture agnostic digest can be found by pulling and inspecting an image:
 
 ```sh
+# docker
 docker pull gcr.io/distroless/static-debian12:nonroot
 docker inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDigests[0]' | cut -d@ -f2
+
+# podman
+podman pull gcr.io/distroless/static-debian12:nonroot
+docker inspect gcr.io/distroless/static-debian12:nonroot | jq -r '.[0].RepoDigests[1]' | cut -d@ -f2
 ```
 
 ### SOURCE_DATE_EPOCH
