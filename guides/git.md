@@ -56,7 +56,7 @@ git diff origin/main HEAD --name-only --no-renames | \
 
 Assumes the use of `.gitattributes` to hide certain files in pull requests (see [overrides]). The attributes should only be 'set' instead of being equal to true or false.
 
-```
+```gitattributes
 # vendored dependencies
 vendor/** linguist-vendored
 
