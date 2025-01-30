@@ -20,7 +20,7 @@ git config --global alias.swc "switch --create"
 
 # pull config
 git config --global pull.rebase false
-git confif --global push.autosetupremote true
+git config --global push.autosetupremote true
 ```
 
 ## Empty commit
