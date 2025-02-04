@@ -10,5 +10,5 @@ kubeswitch: CLI to switch namespace and context.
 - Also allow values to be set via flags.
 
 ```sh
-ksw -n/--namespace NAMESPACE -c/--context CONTEXT
+ksw [-c/--context CONTEXT] [-n/--namespace NAMESPACE]
 ```
