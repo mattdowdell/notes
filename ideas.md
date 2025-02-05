@@ -12,3 +12,6 @@ kubeswitch: CLI to switch namespace and context.
 ```sh
 ksw [-c/--context CONTEXT] [-n/--namespace NAMESPACE]
 ```
+
+- https://stackoverflow.com/questions/46926750/kubernetes-is-it-possible-to-configure-a-default-namespace-for-a-user (change namespace for context)
+- `kubectl config use-context <name>` (change context)
