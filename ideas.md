@@ -15,3 +15,9 @@ ksw [-c/--context CONTEXT] [-n/--namespace NAMESPACE]
 
 - https://stackoverflow.com/questions/46926750/kubernetes-is-it-possible-to-configure-a-default-namespace-for-a-user (change namespace for context)
 - `kubectl config use-context <name>` (change context)
+
+----
+
+lint-sync, but for various centrally managed config files
+
+see https://github.com/charmbracelet/meta/blob/main/.github/workflows/lint-sync.yml
