@@ -80,3 +80,4 @@
 - Build dashboards to monitor metrics and understand normal behaviour, add alerts when well understood.
 - Recognition day/week can be useful for amplifying completed work, but only if it's top of mind.
 - [SQL Cookbook](https://sqlfordevs.com/ebooks/next-level).
+- [Kubernetes controller pitfalls](https://ahmet.im/blog/controller-pitfalls/)
