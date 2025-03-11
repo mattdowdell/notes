@@ -24,4 +24,5 @@
 ### Observability
 
 - [otel](https://github.com/open-telemetry/opentelemetry-go)
+- [otelsql](https://github.com/XSAM/otelsql)
 - [otelpgx](https://github.com/exaring/otelpgx)
