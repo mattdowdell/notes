@@ -1,5 +1,10 @@
 # Contributing
 
+## Philosophy
+
+1. Code changed as part of a pull request is the responsibility of its author.
+2. Once a pull request is merged, the code becomes the responsibility of the team.
+
 ## Contributors
 
 - Give your branch a descriptive name including your name, e.g. `matt/implement-example-api`. This
