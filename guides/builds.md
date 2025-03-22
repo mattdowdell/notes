@@ -32,11 +32,19 @@ Suppress the symbol table and DWARF debug info by setting `-s` and `-w` in `-ldf
 go build -ldflags="-s -w" .
 ```
 
+### Cross-Platform Builds
+
+Set the `GOOS` and `GOARCH` environment variables for cross-platform binary builds without needing to resort to enumulation.
+
+```sh
+GOOS=linux GOARCH=arm64 go build .
+```
+
 ## Docker
 
 ### Bind Mounts
 
-Use bind mounts to avoid COPYing the whole repository into the build context.
+Use bind mounts to avoid copying the whole repository into the build context.
 
 Without vendoring:
 
@@ -101,16 +109,16 @@ FROM golang:1.23-bookworm AS build
 FROM gcr.io/distroless/static-debian12:nonroot AS runtime
 
 ARG SERVICE
-COPY --from=build /go/bin/${SERVICE} /service
-
-ENTRYPOINT ["/service"]
+COPY --from=build /go/bin/${SERVICE} /${SERVICE}
 ```
+
+Unfortunately, the `ENTRYPOINT` doesn't know how to deal with build args. Instead, set the entrypoint when starting the image, e.g. in docker-compose, a k8s pod spec, etc.
 
 Build the image using:
 
 ```sh
 # docker
-podman build --target runtime --build-arg example --tag example:latest .
+docker build --target runtime --build-arg example --tag example:latest .
 
 # podman
 podman build --target runtime --build-arg example --tag example:latest .
@@ -118,9 +126,16 @@ podman build --target runtime --build-arg example --tag example:latest .
 
 ### SOURCE_DATE_EPOCH
 
-Set the `SOURCE_DATE_EPOCH` environment variable during container builds to set the timestamp on each layer. See [docs](https://docs.docker.com/build/ci/github-actions/reproducible-builds/) for more details.
+Set the `SOURCE_DATE_EPOCH` environment variable to a Unix time during container builds to set the timestamp on each layer. See [docs](https://docs.docker.com/build/ci/github-actions/reproducible-builds/) for more details.
 
-This value can also be passed in as a build argument to the container to be used to set timestamps of files, which further improves reproducibility.
+This value can also be passed in as a build argument to the container to be used to set timestamps of files, which further improves reproducibility. For example:
+
+```sh
+ARG SOURCE_DATE_EPOCH=0
+RUN touch --date=@${SOURCE_DATE_EPOCH} ./path/to/file
+```
+
+The `--date` option for `touch` only exists in the GNU version. It is not available on MacOS which has BSD `touch`.
 
 ### Directories affect reproducibility
 
