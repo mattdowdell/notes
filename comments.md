@@ -48,7 +48,7 @@
 - Establish technical credentials before offering contrasting opinions, more likely to be taken seriously.
 - Volunteer for work outside your day-to-day activities.
 - Fully understand a counter proposal before accepting or rejecting it.
-- Take emotion out of conflicts, focus on just the facts (Dragnet approach).
+- Take emotion out of conflicts, focus on just the facts (Dragnet approach: "just the facts, ma'am").
 - Do your own research and form your own opinion when mediating conflicts, reframe the problem as necessary.
 - Senior technical roles are very different, expect to deal with the abstract rather than the technical.
 - Senior technical roles can take a lot of getting used to, not enjoyable or worthwhile for everyone.
