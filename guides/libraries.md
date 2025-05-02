@@ -12,6 +12,7 @@
 - [testify](https://github.com/stretchr/testify)
 - [mockery](https://github.com/vektra/mockery)
 - [godog](https://github.com/cucumber/godog)
+- [go-internal](https://github.com/rogpeppe/go-internal)
 
 ### APIs
 
