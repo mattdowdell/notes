@@ -81,3 +81,4 @@
 - Recognition day/week can be useful for amplifying completed work, but only if it's top of mind.
 - [SQL Cookbook](https://sqlfordevs.com/ebooks/next-level).
 - [Kubernetes controller pitfalls](https://ahmet.im/blog/controller-pitfalls/)
+- [Engineering Ladders](https://github.com/jorgef/engineeringladders)
