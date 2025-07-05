@@ -92,4 +92,3 @@ While processes should aim to be simple and robust, non-standard diversions can 
 > Adding more wheels to a car doesn't make it a truck.
 
 Scaling a system up requires a holistic approach, considering aspects including capacity, compute and bandwidth. Adding just one of these is unlikely to produce the desired result.
-- Scaling up requires
