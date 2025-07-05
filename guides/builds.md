@@ -46,6 +46,8 @@ GOOS=linux GOARCH=arm64 go build .
 
 Use bind mounts to avoid copying the whole repository into the build context. These can be combined with cache mounts to re-use Go's caches across multiple builds. The commands below assume use of the [Official Go image](https://hub.docker.com/_/golang) image on Docker Hub.
 
+A bind mount is read only, so the built binaries must be output outside the mount. Particularly as they're used in subsequent layers and bind mounts only exist for the lifetime of a specific step.
+
 Without vendoring:
 
 ```dockerfile
