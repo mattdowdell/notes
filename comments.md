@@ -85,6 +85,10 @@
 
 ### Quotes
 
+> You can't teach curiosity.
+
+Knowledge gaps can be improved with coaching, mentoring and experience. But attitude and enthusiasm can seldom be taught.
+
 > Some processes are meant to have sharp edges.
 
 While processes should aim to be simple and robust, non-standard diversions can be discouraged by making them significantly more complex and fragile.
