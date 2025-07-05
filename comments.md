@@ -82,3 +82,14 @@
 - [SQL Cookbook](https://sqlfordevs.com/ebooks/next-level).
 - [Kubernetes controller pitfalls](https://ahmet.im/blog/controller-pitfalls/)
 - [Engineering Ladders](https://github.com/jorgef/engineeringladders)
+
+### Quotes
+
+> Some processes are meant to have sharp edges.
+
+While processes should aim to be simple and robust, non-standard diversions can be discouraged by making them significantly more complex and fragile.
+
+> Adding more wheels to a car doesn't make it a truck.
+
+Scaling a system up requires a holistic approach, considering aspects including capacity, compute and bandwidth. Adding just one of these is unlikely to produce the desired result.
+- Scaling up requires
