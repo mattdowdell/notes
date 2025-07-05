@@ -44,30 +44,33 @@ GOOS=linux GOARCH=arm64 go build .
 
 ### Bind Mounts
 
-Use bind mounts to avoid copying the whole repository into the build context.
+Use bind mounts to avoid copying the whole repository into the build context. These can be combined with cache mounts to re-use Go's caches across multiple builds. The commands below assume use of the [Official Go image](https://hub.docker.com/_/golang) image on Docker Hub.
 
 Without vendoring:
 
 ```dockerfile
-WORKDIR /src
+WORKDIR /go/src
 
-RUN --mount=type=cache,target=/go/pkg/mod/ \
+RUN --mount=type=cache,target=/root/.cache/go-build \
+    --mount=type=cache,target=/go/pkg/mod/ \
     --mount=type=bind,source=go.sum,target=go.sum \
     --mount=type=bind,source=go.mod,target=go.mod \
     go mod download -x
 
-RUN --mount=type=cache,target=/go/pkg/mod/ \
-    --mount=type=bind,target=. \
-    CGO_ENABLED=0 go build -o ./dist/ ./cmd/...
+RUN --mount=type=bind,target=. \
+    --mount=type=cache,target=/root/.cache/go-build \
+    --mount=type=cache,target=/go/pkg \
+    CGO_ENABLED=0 go build -o /go/bin/ ./cmd/...
 ```
 
 With vendoring:
 
 ```dockerfile
-WORKDIR /src
+WORKDIR /go/src
 
-RUN --mount=type=bind,target=. \
-    CGO_ENABLED=0 go build -o ./dist/ ./cmd/...
+RUN --mount=type=cache,target=/root/.cache/go-build \
+    --mount=type=bind,target=. \
+    CGO_ENABLED=0 go build -o /go/bin/ ./cmd/...
 ```
 
 Bind mounts may need a trailing `,z` if the builder (i.e. the docker or podman VM) is running with SELinux enabled. See [container/podman#15423] for more details. That said, podman does not notice changes to bind-mounted directories per [containers/podman#22450].
@@ -142,3 +145,15 @@ The `--date` option for `touch` only exists in the GNU version. It is not availa
 A file that is added to a final image using `ADD` or `COPY` can be made reproducible by using a reproducible build, setting consistent permissions, and setting the timestamp to a static value. However, if the file is added to a directory, the directory is also modified to the current time, as described [here](https://github.com/moby/moby/issues/47438).
 
 To workaround this issue, try to put all files in the root directory of the container as this avoids the issue.
+
+### Docker Hub Mirror
+
+Docker Hub has relatively low limits for anonymous access. Fortunately, there are mirrors that are far more generous:
+
+```dockerfile
+# mirror.gcr.io caches of popular docker hub images, but does not add rate limiting.
+# See https://cloud.google.com/artifact-registry/docs/pull-cached-dockerhub-images.
+
+mirror.gcr.io/IMAGE:TAG
+```
+```
