@@ -96,3 +96,11 @@ While processes should aim to be simple and robust, non-standard diversions can 
 > Adding more wheels to a car doesn't make it a truck.
 
 Scaling a system up requires a holistic approach, considering aspects including capacity, compute and bandwidth. Adding just one of these is unlikely to produce the desired result.
+
+> Luck is opportunity plus preparation.
+
+By investing in yourself now, you can be both ready and well positioned to seize an opportunity when it appears.
+
+> Never let a good crisis go to waste.
+
+When a crisis occurs, use it as an opportunity to push for new and existing ideas that were previously unfeasible.
