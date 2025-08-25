@@ -15,6 +15,8 @@ git config --global url.git@github.com:.insteadof https://github.com/
 git config --global alias.co checkout
 git config --global alias.st status
 git config --global alias.br branch
+git config --global alias.brd "branch --delete"
+git config --global alias.brdf "branch --delete --force"
 git config --global alias.sw switch
 git config --global alias.swc "switch --create"
 
