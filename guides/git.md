@@ -34,7 +34,7 @@ git commit --allow-empty -m "message"
 ## Modify git commit date
 
 ```sh
-GIT_COMMITTER_DATE="$(date)" git commit --amend --no-edit --date "$(date)
+GIT_COMMITTER_DATE="$(date)" git commit --amend --no-edit --date "$(date)"
 ```
 
 ## Soft reset commits on branch
