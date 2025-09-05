@@ -23,6 +23,7 @@
 ### CLIs
 
 - [kingpin](https://github.com/alecthomas/kingpin)
+- Anything by [charmbracelet](https://github.com/charmbracelet)
 
 ### Config
 
@@ -34,8 +35,11 @@
 - [otelsql](https://github.com/XSAM/otelsql)
 - [otelconnect-go](https://github.com/connectrpc/otelconnect-go)
 
-### Other
+### Async
 
 - [go-retry](https://github.com/sethvargo/go-retry)
 - [pond](https://github.com/alitto/pond)
-- [uuid](https://github.com/google/uuid)
+
+### Other
+
+- [uuid](https://github.com/gofrs/uuid)
