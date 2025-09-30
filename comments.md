@@ -82,6 +82,8 @@
 - [SQL Cookbook](https://sqlfordevs.com/ebooks/next-level).
 - [Kubernetes controller pitfalls](https://ahmet.im/blog/controller-pitfalls/)
 - [Engineering Ladders](https://github.com/jorgef/engineeringladders)
+- API honeymoon: when you're so happy with your API that you disregard the possibility of it changing.
+- We know fire is bad and smoke detectors are good. But it might be worth making the fire a bit smaller before installing alarms that will be going off constantly.
 
 ### Quotes
 
