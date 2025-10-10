@@ -158,4 +158,3 @@ Docker Hub has relatively low limits for anonymous access. Fortunately, there ar
 
 mirror.gcr.io/IMAGE:TAG
 ```
-```
