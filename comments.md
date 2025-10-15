@@ -106,3 +106,9 @@ By investing in yourself now, you can be both ready and well positioned to seize
 > Never let a good crisis go to waste.
 
 When a crisis occurs, use it as an opportunity to push for new and existing ideas that were previously unfeasible.
+
+> It ain’t what you don’t know that gets you into trouble. It’s what you know for sure that just ain’t so.
+>
+> -– Mark Twain
+
+Having unknown parts of a system aren't that big a deal. But discovering core invariants of that system are incorrect means it's going to be a very bad day.
