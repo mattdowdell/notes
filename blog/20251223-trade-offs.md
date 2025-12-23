@@ -2,7 +2,7 @@
 
 <!-- 100 chars ------------------------------------------------------------------------------------>
 
-## Lesson 1: Trade-offs
+## Lesson 1: Trade-offs are unavoidable
 
 I'll start with the most relevant lesson of the year, not because it was the most impactful, but
 because it lays the groundwork for many of the others. It is perhaps one of the universal truths of
@@ -14,9 +14,9 @@ The trade-off in this case is not one I made, but one I devoted much time trying
 is perhaps a sub-lesson: what is bad today, does not need to be as bad tomorrow. But for now, lets
 focus on the main lesson.
 
-I joined Akamai in August 2024 to work on their next-generation ObjectStorage offering. At the time,
-it was in a Beta testing phase, but later reached General Availability (GA) in January 2025. As
-befits a new product that was built relatively quickly, were a good number of trade-offs. But the
+I joined my team in August 2024 to work on their next-generation ObjectStorage offering. At the
+time, it was in a Beta testing phase, but later reached General Availability (GA) in January 2025.
+As befits a new product that was built relatively quickly, were a good number of trade-offs. But the
 one that I've orbited the most this year was performance at the cost of availability.
 
 Our entire architecture was predicated upon sharding. We took a number of [Ceph] clusters, and
@@ -62,9 +62,10 @@ weeks away. The QA team later told me that they never got to the point where the
 test what code had been written. I think the reality is that giving one person responsibility does
 not always produce consistent results. People are different, with different skillsets, motivations
 and experience. In this case, it was almost certainly the wrong person to depend upon. But choosing
-to create that dependency, and letting it persist for so long without results is a failure of
-management. Eventually, the responsibility was moved to someone else, which is where I enter the
-story.
+to create that dependency, without any redundancy, and letting it persist for so long without
+results is a worse failure in my mind. Eventually, the responsibility was moved to someone else,
+which is where I enter the story. You could argue that moving responsibility to another single point
+of failure is recreating the same failure conditions. I'd more than likely agree.
 
 I won't claim that the technical and human issues above were totally avoidable, mostly because I
 don't think I would have done any better with what I knew at the start of the year. Making mistakes
@@ -75,30 +76,81 @@ domains. And they may just cost you the same thing.
 
 ## Lesson 2: Sunk Cost Fallacy
 
-Taking over a failing unreleased project is an experience. Starting on a codebase that's running in
-production and being used by customers is easy by comparison. With enough telemetry, you can see
-what's not working and work towards fixing it. Nonetheless, first task I was given was getting it up
-to the standards of our other microservices. In hindsight, this was a misstep, and leads nicely into
-the second lesson.
+I've worked on codebases with problems. I've worked on codebases that have yet to see a release. But
+taking over a unreleased project where no one can tell you if it even works is a novel experience
+for me. Initially, there was a perception that the project could be made good. It just needed some
+polish and we could ship it. This turned out to be incorrect.
 
-__Recognise when starting over is better than doubling down.__
+__Recognise when starting over is better than continuing on.__
 
-To be clear, I knew what sunk-cost fallacy is. I browse Reddit and Hacker News and read the sage
-wisdom of those with more experience. But I clearly didn't know how to put that into practice.
+I learned about sunk-cost fallacy a while ago, likely from a post on Hacker News or Reddit. It felt
+deceptively simple to recognise. But I'd never really experienced it first-hand.
 
-Unsurprisingly, bringing anything up to a standard is far easier when that standard is documented.
-In this case, it was not, so I set about creating one. I was fortunate to have seen good standards
-for building an operating microservices in a previous job. After drawing from that and adding in
-some tweaks to better suit my current team, I had something to work from. There were 2 minor
-learnings for me here:
+When I started working on this project, the first task I was assigned was to evaluate what has been
+built already. Figure out if it was salvageable, bring it up to the standards set by existing
+microservices if so. I didn't subscribe to the idea that anything is truly irredeemable. If code can
+do anything, surely it can be made better. If my recommendation was to throw away what was already
+built, I felt I needed a strong, objective rationale. So I created an objective tool for evaluating
+it, or indeed any microservice.
 
-- Leaving a job means leaving behind their documentation. I can remember the broad strokes, but not
-  the details. Rebuilding it from scratch was much harder than I expected.
-- Code itself makes very little difference when measuring one microservice against another.
+In a previous job, I'd been introduced to a "maturity model". It was a simple checklist, full of
+flexible yet unambiguous requirements, grouped into levels. The higher the level, the more mature
+the service was, and the less human intervention was required to support it. This is the tool I
+replicated for my evaluation, with a few changes to match the environment I currently found myself
+in. Using the tool, I built myself a backlog of tasks, mostly around improving serviceability,
+making sure we had enough information to debug in production.
 
-_more_
+As I dug through the code, I found the real problem: I couldn't tell if it satisfied the
+requirements. There was a design for the service. But it lacked not only a good description of the
+problem, but also the depth to show it solved whatever problem it wanted to solve. While the design
+was reviewed, there was no recording of that discussion. There was a recorded demo of the service in
+action, which cast yet more doubt on the correctness of the solution.
+
+Eventually, I concluded that starting over from scratch was the only option. I went back to gathering
+requirements, defining the scope, documenting the various implementation options. All work that took
+time, but meant that I could rationalise the decisions made. Some parts of the original
+implementation remained, there were some good ideas within. Others got replaced, simplified, or
+refined. And after all that, we started building again.
+
+I suppose the main takeaway for me is figuring out what to care about. Code structure is an
+implementation detail. Serviceability issues are fixable. But building on the wrong requirements was
+only fixed by starting the development process again.
+
+## Lesson 3: It ain't what you know for sure that gets you in trouble
+
+When you design a system, you naturally build in rules. For example, action A must happen before
+action B. So if A fails, B is never attempted. These rules help you reason about the system's
+behaviour and how it can fail. So when something supposedly impossible happens on a Monday, it's
+gonna be a bad week.
+
+This particular week started with an escalation. I work on ObjectStorage, and much of the system is
+built upon sharding. We have multiple [Ceph] clusters, with buckets existing in multiple clusters,
+and objects existing in just 1. We have a database that tracks where an object may exist. I use
+"may" here because of our rules. We write the location to the database before we write the object to
+the cluster. So if the latter step fails, we have an orphaned database record. Similarly, if the
+object gets deleted from the bucket, the database record is orphaned again. In both cases this is
+acceptable, and we have processes to periodically clean up those orphans.
+
+The escalation had come through a couple of layers of the Support team. The customer reported that
+they could list and object, but could not download it. One of these Support engineers had noticed
+the cause for this: the object was not where it was meant to be. Listing objects went directly to
+each the Ceph clusters, listing the objects and aggregating the results. But downloading the object
+hit the database first, then went to the wrong Ceph cluster and got an error back.
+
+Customers tend to react badly to their data being unavailable, so a number of us gathered to
+brainstorm our next steps. There was much debate about the cause of the failure. There were
+thankfully few components involved, but we questioned everything about them. Anything that was
+remotely possible was scrutinised. Obscure knowledge was dusted off and considered. At this point,
+we didn't know the scale of the problem. Did it affect 1 customer or 100? Did it affect all
+production regions, or just 1? 
+
+The issue turned out to be in our code. We use [TiKV] to store this data, but do so without
+transactions because they were too slow for our performance requirements. As such, 2 writes could
+conflict with one another. We thought this risk to be solved because we used mutexes to prevent
+concurrent writes. Under the hood, TiKV uses gRPC streams, keeping connections open like a regular
+SQL database. This meant that whilst our database client might time out, the database server would
+keep going. Another request might come into the service with the database client, which places the
+object somewhere else and writes the decision to the database. This decision appears to get
+persisted, but the first write is what actually succeeded. We never checked what was in the
+database, and returned the result of the most recent decision.
 <!-- 100 chars ------------------------------------------------------------------------------------>
-
-## Lesson 3: ???
-
-_Good things come in threes._
