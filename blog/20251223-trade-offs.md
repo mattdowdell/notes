@@ -96,26 +96,9 @@ learnings for me here:
   the details. Rebuilding it from scratch was much harder than I expected.
 - Code itself makes very little difference when measuring one microservice against another.
 
-
-
+_more_
 <!-- 100 chars ------------------------------------------------------------------------------------>
 
-Bringing something up to a standard is easier if that standard is documented. Perhaps
-unsurprisingly, it did not. So I set about making one. In doing so, I learned something that still
-fascinates me months later: the implementation is entirely subjective. Instead, I found myself
-caring about qualities like serviceability, observability, security, availability. I ended up with a
-non-functional checklist, where each item could be easily validated. These validations were almost
-entirely manual on the basis that anything you could automate would be expressed through the config
-file of some tool instead.
+## Lesson 3: ???
 
-Herein lies another lesson: keep hold of the good ideas you've seen in the past. For the avoidance
-of doubt, this doesn't include anything proprietary. In a previous job, I was fortunate to have come
-across the concept of a Maturity Model. This one was targeted at deploying microservices to customer
-datacenters where you might not have easy access. It was therefore a guide for how to create a
-microservice that could survive with negligible human interaction. A quick text to a former
-colleague and friend got me what I needed and with a bit of tweaking I had my own checklist.
-
-
-
-
-<!-- 100 chars ------------------------------------------------------------------------------------>
+_Good things come in threes._
