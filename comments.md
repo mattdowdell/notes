@@ -115,3 +115,5 @@ When a crisis occurs, use it as an opportunity to push for new and existing idea
 Having unknown parts of a system aren't that big a deal. But discovering core invariants of that system are incorrect means it's going to be a very bad day.
 
 > We don't build skyscrapers on sand
+
+Quick and dirty implementations are fine for prototyping. But strong foundations are needed for ambitious, scalable projects.
