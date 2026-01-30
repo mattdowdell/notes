@@ -78,6 +78,14 @@ negative test cases respectively.
 
 [5]: https://go.dev/blog/examples#example-function-names
 
+## Structure
+
+<!--
+arrange
+act
+assert
+-->
+
 ## Test Tables
 
 [Table-driven tests][6] allow a test to be parameterised, avoiding repetitive boilerplate across
@@ -125,5 +133,12 @@ However, it limits the complexity a sub-test can reach, and also makes tests eas
 requirements change.
 
 [7]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
+
+## Mocking
+
+<!--
+testify/mock
+mockery
+-->
 
 <!-- 100 chars ------------------------------------------------------------------------------------>
