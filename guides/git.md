@@ -37,6 +37,15 @@ git commit --allow-empty -m "message"
 GIT_COMMITTER_DATE="$(date)" git commit --amend --no-edit --date "$(date)"
 ```
 
+## Correct Author
+
+For when `git config` had the wrong author, and has been updated to the correct value.
+
+```sh
+# affects latest commit only
+git commit --amend --reset-author --no-edit
+```
+
 ## Soft reset commits on branch
 
 ```sh
