@@ -7,9 +7,24 @@
 
 ### Variables
 
-- Namespace: Query: `label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics"},namespace)`
+- Namespace: (Query)
+
+  ```promql
+  label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics"},namespace)
+  ```
+
 - Pod: Text, e.g. `my-deployment.*`
-- Container: Query: `label_values(container_cpu_usage_seconds_total{namespace=~"$namespace", pod=~"$pod"},container)`
+- Container: (Query)
+
+  ```promql
+  label_values(container_cpu_usage_seconds_total{namespace=~"$namespace", pod=~"$pod"},container)
+  ```
+
+For multi-cluster support, use the `up` metric. For example:
+
+```promql
+label_values(up{job="integrations/kubernetes/kube-state-metrics"},cluster)
+```
 
 ### Usage
 
@@ -17,7 +32,7 @@
 
 - Visualisation: Time series
 - Description: Container CPU usage over time.
-- Unit: Cores
+- Unit: Cores (Custom)
 
 ```promql
 # Max Used
@@ -49,6 +64,7 @@ max(kube_pod_container_resource_limits{
 
 - Visualisation: Time series
 - Description: Container memory usage over time.
+- Unit: Cores (Custom)
 
 ```promql
 # Max Used
@@ -83,7 +99,7 @@ max(kube_pod_container_resource_limits{
 - Visualisation: Stat
 - Description: The current CPU limit.
 - Calculation: Last *
-- Unit: Cores
+- Unit: Cores (Custom)
 
 ```promql
 max(kube_pod_container_resource_limits{
@@ -99,7 +115,7 @@ max(kube_pod_container_resource_limits{
 - Visualisation: Gauge
 - Description: The difference between the current and recommended CPU limit. The acceptable tolerance is ±0.2 cores.
 - Calculation: Last *
-- Unit: Cores
+- Unit: Cores (Custom)
 - Min: -2
 - Max: 2
 - Thresholds:
@@ -126,7 +142,7 @@ max(kube_pod_container_resource_limits{
 - Visualisation: Stat
 - Description: The recommended CPU limit, calculated as P99 of the max used across 7 days, plus 15%.
 - Calculation: Last *
-- Unit: Cores
+- Unit: Cores (Custom)
 
 ```promql
 quantile_over_time(0.99, max(rate(container_cpu_usage_seconds_total{
@@ -142,7 +158,7 @@ quantile_over_time(0.99, max(rate(container_cpu_usage_seconds_total{
 - Visualisation: Stat
 - Description: The current CPU request.
 - Calculation: Last *
-- Unit: Cores
+- Unit: Cores (Custom)
 
 ```promql
 max(kube_pod_container_resource_requests{
@@ -158,7 +174,7 @@ max(kube_pod_container_resource_requests{
 - Visualisation: Gauge
 - Description: The difference between the current and recommended CPU request. The acceptable tolerance is ±0.2 cores.
 - Calculation: Last *
-- Unit: Cores
+- Unit: Cores (Custom)
 - Min: -2
 - Max: 2
 - Thresholds:
