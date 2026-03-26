@@ -118,3 +118,5 @@ Having unknown parts of a system aren't that big a deal. But discovering core in
 > We don't build skyscrapers on sand
 
 Quick and dirty implementations are fine for prototyping. But strong foundations are needed for ambitious, scalable projects.
+
+> During our careers, we get tattoos and brands. Tattoos are the choice we make to put something we feel so strongly about that we will permanently have it inked into our skin. Brands are the things that have burned us.
