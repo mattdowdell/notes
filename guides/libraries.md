@@ -43,3 +43,4 @@
 ### Other
 
 - [uuid](https://github.com/gofrs/uuid)
+- [hedge](https://github.com/bhope/hedge)
