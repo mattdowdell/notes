@@ -140,11 +140,19 @@ assert.Equal(t, "want", got)
 assert.NoError(t, err)
 ```
 
+Generally [`testify/require`] helpers should be used in the Arrange section to ensure fallible setup
+has completed correctly. Conversely, [`testify/assert`] should be used in the Assert section to
+allow all returned values to be checked in parallel.
+
 In rare situations, the Arrange or Assert section may be empty. If this occurs, the comment should
-remain in case later additions to the test make use of it. The Arrange section can be empty when
-testing a simple pure function, or when the setup is completed whilly within a [test table] field.
-The Assert section can be empty when no values are returned. Alternatively, the Assert section may
-be empty when validating a panic as this can only be handled in the Act section. For example:
+remain in case later additions to the test make use of it.
+
+The Arrange section can be empty when testing a simple pure function, or when the setup is completed
+wholly within a [test table] field.
+
+The Assert section can be empty when no values are returned within the Act section. Alternatively,
+the Assert section may be empty when validating a panic as this can only be handled in the Act
+section. For example:
 
 ```go
 // arrange
