@@ -87,7 +87,8 @@
 - [How to ship](https://www.seangoedecke.com/how-to-ship/)
 - [11 Simple Rules](https://fs.blog/dave-packards-11-simple-rules/)
 - Infrastructure deployments should be entirely separate from the application deployments that depend upon them.
-
+- [Distributed Locks Failure](https://systemdr.substack.com/p/distributed-lock-failure-how-long>
+- 
 ### Quotes
 
 > You can't teach curiosity.
