@@ -8,10 +8,10 @@ format = """
 $username\
 $hostname\
 $directory\
+$kubernetes\
 $git_branch\
 $git_commit\
 $git_state\
-$git_metrics\
 $git_status\
 $line_break\
 $character"""
@@ -27,6 +27,12 @@ style = 'bold #a9dc76'
 symbol = ''
 format = '[$symbol $branch(:$remote_branch)]($style) '
 style = 'bold #78dce8'
+
+[git_commit]
+style = 'bold #a9dc76'
+
+[git_state]
+style = 'bold #ffd866'
 
 [git_status]
 style = 'bold #ae81ff'
