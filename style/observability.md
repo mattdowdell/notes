@@ -114,4 +114,4 @@ TODO: naming conventions for attributes + log fields?
 
 - https://blog.olly.garden/how-to-name-your-metrics
 - https://blog.olly.garden/how-to-name-your-spans
-- otel style guide?
+- https://github.com/instrumentation-score/spec
