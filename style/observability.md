@@ -1,5 +1,4 @@
 # Observability Guide
-<!-- TODO: incorporate feedback from original -->
 <!-- 100 chars ------------------------------------------------------------------------------------>
 High quality observability is essential to the supportability of a product. It provides insights
 into the health and behaviour of the product and its component services, supporting analysis of
