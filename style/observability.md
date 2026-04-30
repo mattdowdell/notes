@@ -109,3 +109,8 @@ TODO: look at https://blog.olly.garden/how-to-name-your-spans.
 ## Attributes
 
 TODO: naming conventions for attributes + log fields?
+
+## References
+
+- https://blog.olly.garden/how-to-name-your-metrics
+- https://blog.olly.garden/how-to-name-your-spans
