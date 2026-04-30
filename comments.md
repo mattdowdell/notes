@@ -123,3 +123,7 @@ Having unknown parts of a system aren't that big a deal. But discovering core in
 Quick and dirty implementations are fine for prototyping. But strong foundations are needed for ambitious, scalable projects.
 
 > During our careers, we get tattoos and brands. Tattoos are the choice we make to put something we feel so strongly about that we will permanently have it inked into our skin. Brands are the things that have burned us.
+
+> a battle of unpalatable compromises.
+
+From [S3 Files and the changing face of S3](https://www.allthingsdistributed.com/2026/04/s3-files-and-the-changing-face-of-s3.html)
