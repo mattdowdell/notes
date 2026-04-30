@@ -39,6 +39,7 @@ libraries should be used in Go microservices to achieve this:
 * [`otelgrpc.NewClientHandler`] for gRPC clients.
 * [`otelgrpc.NewServerHandler`] for gRPC servers.
 * [`otelsql`] for SQL clients.
+* [`runtime`] for Go runtime metrics.
 
 OpenTelemetry will often define metrics that are well-reasoned and based on feedback from a wide
 community. As such, they often cover scenarios that we may not have yet encountered, but may do so
@@ -56,6 +57,7 @@ also be applied to NoSQL databases which may lack an equivalent library.
 [`otelgrpc.NewClientHandler`]: https://pkg.go.dev/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc#NewClientHandler
 [`otelgrpc.NewServerHandler`]: https://pkg.go.dev/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc#NewServerHandler
 [`otelsql`]: https://pkg.go.dev/github.com/XSAM/otelsql
+[`runtime`]: https://pkg.go.dev/go.opentelemetry.io/contrib/instrumentation/runtime
 [`db.client`]: https://opentelemetry.io/docs/specs/semconv/db/database-metrics/
 
 ### Custom Metrics
@@ -70,7 +72,7 @@ Any custom metric must meet the following criteria:
 
 * It offers more visibility to the behaviour of a service than third-party metrics would.
 * It can represent all outcomes of the logic it covers.
-* It does not contain high cardinality label values, with ideally no more than 10 variants.
+* It does not contain high cardinality attributes, with ideally no more than 10 variants.
 
 If the number of outcomes starts to conflict with the cardinality limit, consider whether they are
 all necessary.
@@ -98,13 +100,22 @@ TODO: look at https://blog.olly.garden/how-to-name-your-spans.
 
 ## Logging
 
+- Logs must be in a structured log format
+- Only produce access logs in the ingress service.
 - TODO: Levels
+  - Internal errors must be logged at error level.
+  - Client or other non-internal errors errors must not be logged at error level.
 - TODO: Significant events
-- TODO: Separate errors from messages
+  - Don't produce debug logs in hot loops.
+- TODO: Separate errors from messages, messages should be static strings.
 - TODO: Avoid duplicating fields - add fields to logger as soon as it becomes available
 - TODO: Include useful fields to support accurate filtering, e.g. rpc service/method, bucket name, etc.
 - TODO: Return an error or log it, not both
 - Handle errors once. Handling an error means inspecting the error value, and making a decision.
+- Filename + line number must be included.
+- In-scope resource identifiers must be included when available to support filtering.
+- Request metadata must be included to support filter, e.g. RPC method.
+- Trace ID and whether the current span is recording must be included.
 
 ## Attributes
 
