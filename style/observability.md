@@ -20,6 +20,9 @@ They can therefore be client request, the reconciliation of a Kubernetes resourc
 a Kubernetes job. These questions can be well-represented with methodologies like [Golden Signals]
 or [RED] which are both good approaches for monitoring microservice architectures.
 
+[Golden Signals]: https://sre.google/sre-book/monitoring-distributed-systems/
+[RED]: https://grafana.com/blog/2018/08/02/the-red-method-how-to-instrument-your-services/
+
 ### Third Party Metrics
 
 Existing third-party metrics are preferred whenever possible, such as
@@ -44,17 +47,16 @@ others. As such, we should strive to adopt existing standards even when no middl
 exists. For example, while `otelsql` implements [`db.client`] metrics for SQL databases, they can
 also be applied to NoSQL databases which may lack an equivalent library.
 
-<!-- TODO: links -->
-[OpenTelemetry metric semantic conventions]: #todo
-[Controller-Runtime]: #todo
+[OpenTelemetry metric semantic conventions]: https://opentelemetry.io/docs/specs/semconv/general/metrics/
+[Controller-Runtime]: https://book.kubebuilder.io/reference/metrics-reference
 [gRPC OpenTelemetry Metrics]: https://github.com/grpc/proposal/blob/master/A66-otel-stats.md
-[Istio Standard Metrics]: #todo
-[`otelhttp.Transport`]: #todo
-[`otelhttp.NewMiddleware`]: #todo
-[`otelgrpc.NewClientHandler`]: #todo
-[`otelgrpc.NewServerHandler`]: #todo
-[`otelsql`]: #todo
-[`db.client`]: #todo
+[Istio Standard Metrics]: https://istio.io/latest/docs/reference/config/metrics/
+[`otelhttp.Transport`]: https://pkg.go.dev/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp#Transport
+[`otelhttp.NewMiddleware`]: https://pkg.go.dev/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp#NewMiddleware
+[`otelgrpc.NewClientHandler`]: https://pkg.go.dev/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc#NewClientHandler
+[`otelgrpc.NewServerHandler`]: https://pkg.go.dev/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc#NewServerHandler
+[`otelsql`]: https://pkg.go.dev/github.com/XSAM/otelsql
+[`db.client`]: https://opentelemetry.io/docs/specs/semconv/db/database-metrics/
 
 ### Custom Metrics
 
