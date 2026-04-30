@@ -31,21 +31,30 @@ results of business logic, asynchronous workloads, and performance-critical sect
 OpenTelemetry metrics need to be added to a service as appropriate. For example, the following
 libraries should be used in Go microservices to achieve this:
 
-* otelhttp.Transport for HTTP clients.
-* otelhttp.NewMiddleware for HTTP servers.
-* otelgrpc.NewClientHandler for gRPC clients.
-* otelgrpc.NewServerHandler for gRPC servers.
-* otelsql for SQL clients.
+* [`otelhttp.Transport`] for HTTP clients.
+* [`otelhttp.NewMiddleware`] for HTTP servers.
+* [`otelgrpc.NewClientHandler`] for gRPC clients.
+* [`otelgrpc.NewServerHandler`] for gRPC servers.
+* [`otelsql`] for SQL clients.
 
 OpenTelemetry will often define metrics that are well-reasoned and based on feedback from a wide
 community. As such, they often cover scenarios that we may not have yet encountered, but may do so
 in the future. By adopting these standards as much as possible, we can benefit from the learnings of
 others. As such, we should strive to adopt existing standards even when no middleware implementation
-exists. For example, while otelsql implements `db.client` metrics for SQL databases, they can also
-be applied to NoSQL databases which may lack an equivalent library.
+exists. For example, while `otelsql` implements [`db.client`] metrics for SQL databases, they can
+also be applied to NoSQL databases which may lack an equivalent library.
 
 <!-- TODO: links -->
+[OpenTelemetry metric semantic conventions]: #todo
+[Controller-Runtime]: #todo
 [gRPC OpenTelemetry Metrics]: https://github.com/grpc/proposal/blob/master/A66-otel-stats.md
+[Istio Standard Metrics]: #todo
+[`otelhttp.Transport`]: #todo
+[`otelhttp.NewMiddleware`]: #todo
+[`otelgrpc.NewClientHandler`]: #todo
+[`otelgrpc.NewServerHandler`]: #todo
+[`otelsql`]: #todo
+[`db.client`]: #todo
 
 ### Custom Metrics
 
