@@ -98,13 +98,13 @@ TODO: look at https://blog.olly.garden/how-to-name-your-spans.
 
 ## Logging
 
-TODO: Levels
-TODO: Significant events
-TODO: Separate errors from messages
-TODO: Avoid duplicating fields - add fields to logger as soon as it becomes available
-TODO: Include useful fields to support accurate filtering, e.g. rpc service/method, bucket name, etc.
-TODO: Return an error or log it, not both
-Handle errors once. Handling an error means inspecting the error value, and making a decision.
+- TODO: Levels
+- TODO: Significant events
+- TODO: Separate errors from messages
+- TODO: Avoid duplicating fields - add fields to logger as soon as it becomes available
+- TODO: Include useful fields to support accurate filtering, e.g. rpc service/method, bucket name, etc.
+- TODO: Return an error or log it, not both
+- Handle errors once. Handling an error means inspecting the error value, and making a decision.
 
 ## Attributes
 
