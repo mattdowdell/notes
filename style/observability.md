@@ -90,13 +90,21 @@ these attributes would not violate the high cardinality rule outlined above.
 To avoid conflicts with third-party metrics and improve discoverability, prefixes should be added to
 new custom metrics. Ideally, this will be a project-specific identifier. This decouples the metric from any one service, allowing it to be re-used across the project. For consistency, services should agree on what attributes the metric should have. Each service must use the `service.name` attribute to ensure the metric series can be attributed to said service.
 
-Metric names must not contain units. Instead, the unit is specified as metadata when creating the metric's instrument in code. Units should follow the Unified Code for Units of Measure (UCUM). (Todo: add link). Ideally the specified units will be unspecified such as `By` (bytes) and `s` (seconds), as opposed to `MBy` (megabytes) and `ms` (milliseconds).
+Metric names must not contain units. Instead, the unit is specified as metadata when creating the metric's instrument in code. Units should follow the [Unified Code for Units of Measure] (UCUM). Ideally the specified units will be their base form. For example, `By` (bytes) and `s` (seconds), as opposed to `MBy` (megabytes) and `ms` (milliseconds).
+
+```go
+// TODO: add a few examples: duration histogram, cache hit counter, something else?
+```
+
+[Unified Code for Units of Measure]: https://ucum.org/ucum
 
 ## Tracing
 
 TODO: look at https://blog.olly.garden/how-to-name-your-spans.
 
 ## Logging
+
+Like traces, logs capture specific events.
 
 - Logs must be in a structured log format
 - Only produce access logs in the ingress service.
