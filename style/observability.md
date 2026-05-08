@@ -6,7 +6,7 @@ incidents, customer escalations, and otherwise unexpected behaviour.
 
 ## Metrics
 
-Metrics should provide an overview of the health of a product and its component services. These
+Metrics provide a quantitative overview of the health of a product and the components within it. These
 should always be based on clear goals to ensure they remain relevant, accurate and focused. These
 goals will usually be answers to one of the following questions:
 
@@ -44,8 +44,8 @@ OpenTelemetry will often define metrics that are well-reasoned and based on feed
 community. As such, they often cover scenarios that we may not have yet encountered, but may do so
 in the future. By adopting these standards as much as possible, we can benefit from the learnings of
 others. As such, we should strive to adopt existing standards even when no middleware implementation
-exists. For example, while `otelsql` implements [`db.client`] metrics for SQL databases, it can
-also be inplemented for NoSQL databases which may lack an equivalent library.
+exists. For example, while `otelsql` implements [`db.client`] metrics for SQL databases, the metrics can
+also be implemented for NoSQL databases which may currently lack an equivalent library.
 
 [OpenTelemetry metric semantic conventions]: https://opentelemetry.io/docs/specs/semconv/general/metrics/
 [Controller-Runtime]: https://book.kubebuilder.io/reference/metrics-reference
