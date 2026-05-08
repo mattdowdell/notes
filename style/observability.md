@@ -11,11 +11,11 @@ should always be based on clear goals to ensure they remain relevant, accurate a
 goals will usually be answers to one of the following questions:
 
 * How many operations occurred?
-* What was the outcome of those operations?
+* How many of those operations ended in success or failure?
 * How long did those operations take?
 
 An operation can be thought of as a unit of work that can itself be composed of other units of work.
-They can therefore be client request, the reconciliation of a Kubernetes resource, the execution of
+Examples include a client request, the reconciliation of a Kubernetes resource, and the execution of
 a Kubernetes job. These questions can be well-represented with methodologies like [Golden Signals]
 or [RED] which are both good approaches for monitoring microservice architectures.
 
